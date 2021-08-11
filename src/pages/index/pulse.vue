@@ -31,9 +31,9 @@
 
             function main() {
             	initBackgroundLayer();
-	            ball = new LSprite();
+	            ball = new Ball();
 	            backgroundLayer.addChild(ball);
-	            ball.graphics.drawArc(0, '', [0, 0, 20, 0, 2 * Math.PI], true, "#ff0000");
+	        
                 ball.x = w/2;
                 ball.y = h/2;
                 backgroundLayer.addEventListener(LEvent.ENTER_FRAME,onframe);

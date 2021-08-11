@@ -24,6 +24,8 @@
 
             LInit(requestAnimationFrame,'bobbing',w,h,function () {
 	            setTimeout(function () {
+					// 移动网页中用来禁止滚屏，默认为true(禁止)，如果需要使用滚屏功能，则需要将其设置为fasle
+					// 如果不设置preventDefault=false，返回上一页，页面不能点击
 	            	LGlobal.preventDefault = false;
 		            main()
 	            },0);
@@ -31,9 +33,9 @@
 
             function main() {
             	initBackgroundLayer();
-	            ball = new LSprite();
+	            ball = new Ball();
 	            backgroundLayer.addChild(ball);
-	            ball.graphics.drawArc(0, '', [0, 0, 20, 0, 2 * Math.PI], true, "#ff0000");
+	        
                 ball.x = w/2;
                 ball.y = h/2;
                 backgroundLayer.addEventListener(LEvent.ENTER_FRAME,onframe);

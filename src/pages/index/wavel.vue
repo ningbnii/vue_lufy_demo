@@ -15,7 +15,7 @@
 			var h = document.body.clientHeight;
 			var angle = 0;
 			var centerY = h/2;
-			var range = 50;
+			var range = 100;
 			var xspeed = 1;
 			var yspeed = 0.05;
 			var ball;
@@ -29,9 +29,9 @@
 
 			function main() {
 				initBackgroundLayer();
-				ball = new LSprite();
+				ball = new Ball();
 				backgroundLayer.addChild(ball);
-				ball.graphics.drawArc(0, '', [0, 0, 20, 0, 2 * Math.PI], true, "#ff0000");
+				
 				ball.x = 0;
 				ball.y = h/2;
 				backgroundLayer.addEventListener(LEvent.ENTER_FRAME,onframe);
