@@ -15,6 +15,12 @@
         <p>
             <router-link to="/index/wave2">绘制正弦波</router-link>
         </p>
+        <p>
+            <router-link to="/index/circle">圆形运动</router-link>
+        </p>
+        <p>
+            <router-link to="/index/oval">椭圆形运动</router-link>
+        </p>
     </div>
 </template>
 
