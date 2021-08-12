@@ -18,7 +18,7 @@
 			var centerY = h/2;
 			var radiusX = 200;
 			var radiusY = 100;
-			var speed = 0.1;
+			var speed = 0.05;
 			var ball;
 
 			LInit(requestAnimationFrame,'circle',w,h,function () {

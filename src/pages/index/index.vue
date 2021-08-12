@@ -21,6 +21,9 @@
         <p>
             <router-link to="/index/oval">椭圆形运动</router-link>
         </p>
+        <p>
+            <router-link to="/index/distance">两点之间的距离</router-link>
+        </p>
     </div>
 </template>
 
