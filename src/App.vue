@@ -21,6 +21,8 @@
         -moz-osx-font-smoothing: grayscale;
         width: 100vw;
         height: 100vh;
+        /*这段css使移动端长按屏幕的时候不出现选择，防止选取div元素文本*/
+        -webkit-user-select:none;-moz-user-select:none;user-select:none;
     }
     canvas{
         width: 100vw;
