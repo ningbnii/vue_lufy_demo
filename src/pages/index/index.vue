@@ -24,6 +24,9 @@
         <p>
             <router-link to="/index/distance">两点之间的距离</router-link>
         </p>
+        <p>
+            <router-link to="/index/drawingapp">绘制线条</router-link>
+        </p>
     </div>
 </template>
 

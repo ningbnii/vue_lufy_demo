@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div @touchmove.prevent>
         <div id="wavel"></div>
     </div>
 </template>
