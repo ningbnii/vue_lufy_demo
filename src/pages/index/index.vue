@@ -27,6 +27,9 @@
         <p>
             <router-link to="/index/drawingapp">绘制线条</router-link>
         </p>
+        <p>
+            <router-link to="/index/drawingCurves">二次贝塞尔曲线</router-link>
+        </p>
     </div>
 </template>
 
