@@ -9,8 +9,13 @@
 
 	export default {
 		name: "circle",
+        data(){
+		    return {
+		        backgroundLayer:{},
+            }
+        },
 		mounted() {
-			var backgroundLayer;
+			let s = this;
 			var w = document.body.clientWidth;
 			var h = document.body.clientHeight;
 			var angle = 0;
@@ -31,9 +36,9 @@
 			function main() {
 				initBackgroundLayer();
 				ball = new Ball();
-				backgroundLayer.addChild(ball);
+				s.backgroundLayer.addChild(ball);
 
-				backgroundLayer.addEventListener(LEvent.ENTER_FRAME,onframe);
+				s.backgroundLayer.addEventListener(LEvent.ENTER_FRAME,onframe);
 			}
 
 			function onframe() {
@@ -44,13 +49,16 @@
 
 			function initBackgroundLayer() {
 				let s = this;
-				backgroundLayer = new LSprite();
-				addChild(backgroundLayer);
+				s.backgroundLayer = new LSprite();
+				addChild(s.backgroundLayer);
 			}
 		},
 		methods: {
 
-		}
+		},
+        destroyed(){
+		    removeChild(this.backgroundLayer);
+        }
 	};
 </script>
 

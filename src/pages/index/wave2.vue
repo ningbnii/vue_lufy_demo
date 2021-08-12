@@ -8,10 +8,12 @@
 	export default {
 		name: "wave2",
         data(){
-			return {}
+			return {
+			    backgroundLayer:{},
+            }
         },
 		mounted() {
-			var backgroundLayer;
+			let s = this;
 			var w = document.body.clientWidth;
 			var h = document.body.clientHeight;
 			var angle = 0;
@@ -35,8 +37,8 @@
             function main() {
             	initBackgroundLayer();
                 shape = new LShape();
-                backgroundLayer.addChild(shape);
-	            backgroundLayer.addEventListener(LEvent.ENTER_FRAME,onframe);
+                s.backgroundLayer.addChild(shape);
+	            s.backgroundLayer.addEventListener(LEvent.ENTER_FRAME,onframe);
             }
 
             function onframe() {
@@ -56,11 +58,13 @@
 
             function initBackgroundLayer() {
 	            let s = this;
-	            backgroundLayer = new LSprite();
-	            addChild(backgroundLayer);
+	            s.backgroundLayer = new LSprite();
+	            addChild(s.backgroundLayer);
             }
 		},
-        destroy(){}
+        destroyed(){
+		    removeChild(this.backgroundLayer);
+        }
 	};
 </script>
 

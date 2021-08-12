@@ -10,10 +10,12 @@
 	export default {
 		name: "random",
         data(){
-			return {}
+			return {
+			    backgroundLayer:{},
+            }
         },
 		mounted() {
-			var backgroundLayer;
+			var s = this;
 			var w = document.body.clientWidth;
 			var h = document.body.clientHeight;
 			var angleX = 0;
@@ -35,11 +37,11 @@
             function main() {
             	initBackgroundLayer();
 	            ball = new LSprite();
-	            backgroundLayer.addChild(ball);
+	            s.backgroundLayer.addChild(ball);
 	            ball.graphics.drawArc(0, '', [0, 0, 20, 0, 2 * Math.PI], true, "#ff0000");
                 ball.x = w/2;
                 ball.y = h/2;
-                backgroundLayer.addEventListener(LEvent.ENTER_FRAME,onframe);
+                s.backgroundLayer.addEventListener(LEvent.ENTER_FRAME,onframe);
             }
 
             function onframe() {
@@ -51,11 +53,13 @@
 
             function initBackgroundLayer() {
 	            let s = this;
-	            backgroundLayer = new LSprite();
-	            addChild(backgroundLayer);
+	            s.backgroundLayer = new LSprite();
+	            addChild(s.backgroundLayer);
             }
 		},
-        destroy(){}
+        destroyed(){
+		    removeChild(this.backgroundLayer);
+        }
 	};
 </script>
 
