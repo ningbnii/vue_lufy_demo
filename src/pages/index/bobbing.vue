@@ -49,7 +49,6 @@
             }
 
             function initBackgroundLayer() {
-	            let s = this;
 	            s.backgroundLayer = new LSprite();
 	            addChild(s.backgroundLayer);
             }
