@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div @touchmove.prevent>
         <div id="circle"></div>
     </div>
 </template>
