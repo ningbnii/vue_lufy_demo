@@ -1,5 +1,6 @@
 <template>
     <div @touchmove.prevent>
+        <van-button type="primary" class="control" @click="changeThrow()">是否通过控制点：{{throwControlPoint ? '是' : '否'}}</van-button>
         <div id="drawingCurves"></div>
     </div>
 </template>
@@ -12,6 +13,7 @@
         data() {
             return {
                 backgroundLayer: {},
+                throwControlPoint:false,
             }
         },
         mounted() {
@@ -60,24 +62,23 @@
                 s.backgroundLayer.addEventListener(LMouseEvent.MOUSE_DOWN, onMouseDown);
                 s.backgroundLayer.addEventListener(LMouseEvent.MOUSE_MOVE, onMouseMove);
                 s.backgroundLayer.addEventListener(LMouseEvent.MOUSE_UP, onMouseUp);
-                // s.backgroundLayer.addEventListener(LEvent.ENTER_FRAME,frame);
             }
-
 
             function onMouseDown(e) {
                 down = true;
-
-                pointShape.graphics.drawArc(0, '', [e.selfX, e.selfY, 5, 0, 2 * Math.PI], true, '#ff0000');
             }
 
             function onMouseMove(e) {
                 if (down) {
                     // 设置控制点为当前位置
-                    // x1 = e.selfX;
-                    // y1 = e.selfY;
-                    x1 = e.selfX * 2 - (x0 + x2) / 2;
-                    y1 = e.selfY * 2 - (y0 + y2) / 2;
-                    //
+                    if(s.throwControlPoint){
+                        x1 = e.selfX * 2 - (x0 + x2) / 2;
+                        y1 = e.selfY * 2 - (y0 + y2) / 2;
+                    }else{
+                        x1 = e.selfX;
+                        y1 = e.selfY;
+                    }
+
                     // // 绘制控制点
                     pointShape.graphics.clear();
                     pointShape.graphics.drawArc(0, '', [e.selfX, e.selfY, 5, 0, 2 * Math.PI], true, '#ff0000');
@@ -94,7 +95,11 @@
                 addChild(s.backgroundLayer);
             }
         },
-        methods: {},
+        methods: {
+            changeThrow(){
+                this.throwControlPoint = !this.throwControlPoint;
+            }
+        },
         destroyed() {
             removeChild(this.backgroundLayer);
         }
@@ -102,5 +107,8 @@
 </script>
 
 <style scoped>
-
+    .float{
+        position: absolute;
+        z-index: 1000;
+    }
 </style>
