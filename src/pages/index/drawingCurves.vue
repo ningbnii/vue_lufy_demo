@@ -72,6 +72,7 @@
                 if (down) {
                     // 设置控制点为当前位置
                     if(s.throwControlPoint){
+                        // 计算控制点，让曲线通过当前的触点
                         x1 = e.selfX * 2 - (x0 + x2) / 2;
                         y1 = e.selfY * 2 - (y0 + y2) / 2;
                     }else{
@@ -107,8 +108,8 @@
 </script>
 
 <style scoped>
-    .float{
+    .control{
         position: absolute;
-        z-index: 1000;
+        z-index: 10000;
     }
 </style>

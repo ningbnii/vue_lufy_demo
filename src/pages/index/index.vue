@@ -30,6 +30,9 @@
         <p>
             <router-link to="/index/drawingCurves">二次贝塞尔曲线</router-link>
         </p>
+        <p>
+            <router-link to="/index/multiCurves">多曲线</router-link>
+        </p>
     </div>
 </template>
 

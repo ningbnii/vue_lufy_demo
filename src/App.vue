@@ -30,5 +30,10 @@
         flex: 1;
         position: absolute;
     }
+    /*控制层，浮现到canvas上面*/
+    .control{
+        position: absolute;
+        z-index: 10000;
+    }
 
 </style>
